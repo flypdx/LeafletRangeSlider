@@ -21,9 +21,9 @@ This plug in has been created using Leaflet 0.7.7, and has also been tested with
 * [jQueryUI](https://jqueryui.com/)
 * [Moment.js](http://momentjs.com/)
 
-## Demos
+## Demo
 
-The [main demo](http://leafletsliderdev.gartrellgroup.com/) uses date properties, and has links to demos using other property types.
+Coming soon...
 
 ## Integration
 
