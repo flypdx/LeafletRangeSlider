@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Range Slider Demo Page</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="example.css" />
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css">
+
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- To support touch devices -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+
+    <script src="http://leafletsliderdev.gartrellgroup.com/src/LeafletRangeSlider.js"></script>
+
+  </head>
+
+  <body>
+
+    <h2>Range Slider Demo</h2>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+
+      var demoMap = L.map('map').setView([44.0, -121.5], 7);
+
+      var Roads = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png').addTo(demoMap);
+
+      //Fetch some data from a GeoJSON file
+      $.getJSON("demo.json", function(json) {
+
+        var demoLayer = L.geoJson(json);
+
+        var rangeOptions = {
+          layer: demoLayer,
+          controlWidth: '400px',
+          minProperty: 'Start',
+          maxProperty: 'End',
+          sliderMin: '1965-01-01T08:00:00.000Z',
+          sliderMax: '2025-12-31T08:00:00.000Z',
+          filterMin: '1985-11-28T08:00:00.000Z',
+          filterMax: '2005-01-01T08:00:00.000Z',
+          propertyType: 'iso8601',
+          rangeDescriptionFormat: 'shortDate',
+          descriptionPrefix: 'Date:'
+        }
+
+        var rangeSlider = L.control.rangeSliderControl(rangeOptions);
+        demoMap.addControl(rangeSlider);
+        rangeSlider.configureRangeSlider();
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

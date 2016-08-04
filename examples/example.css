@@ -1,0 +1,11 @@
+/* The only thing you need to specify about the map is its size. */
+
+#map { height: 600px; width: 100%; }
+
+/* Color, font, etc. of description text */
+#lrs-range-display {
+  color: #000;
+  background-color: #FFF;
+  font-weight: bold;
+  font-size: 18px;
+}
